@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        audio {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            p { font-size: 1rem; }
+            .container { padding: 20px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 测试页面正常！</h1>
+        <p>如果您能看到这个页面，说明GitHub Pages工作正常</p>
+        
+        <div class="test-section">
+            <h2>📸 照片测试</h2>
+            <div class="photo-grid">
+                <img src="assets/6ab71b20b5c140ce7affaa8ed18a9368.jpg" alt="照片1" onerror="this.style.display='none'">
+                <img src="assets/4361f34a5c0b7bc13128b423925eeb7b.jpg" alt="照片2" onerror="this.style.display='none'">
+                <img src="assets/31245ab32a7b3624ae253c61395616a1.jpg" alt="照片3" onerror="this.style.display='none'">
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🎵 音频测试</h2>
+            <audio controls>
+                <source src="assets/9月10日 下午5点18分.m4a" type="audio/mp4">
+                您的浏览器不支持音频播放。
+            </audio>
+        </div>
+        
+        <div class="test-section">
+            <h2>📱 移动端适配测试</h2>
+            <p>这个页面应该在手机和桌面端都能正常显示</p>
+            <p>屏幕宽度: <span id="width"></span>px</p>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔗 链接测试</h2>
+            <p><a href="index.html" style="color: #ffeb3b; text-decoration: none; font-weight: bold;">返回主页面</a></p>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('width').textContent = window.innerWidth;
+        window.addEventListener('resize', function() {
+            document.getElementById('width').textContent = window.innerWidth;
+        });
+        
+        // 检查资源加载
+        console.log('测试页面加载完成');
+        console.log('当前URL:', window.location.href);
+        console.log('用户代理:', navigator.userAgent);
+    </script>
+</body>
+</html>
