@@ -18,27 +18,27 @@ const MultiAudioPlayer = () => {
   const audioFiles: AudioFile[] = [
     {
       name: "感谢录音1",
-      src: "9月10日 下午5点18分.m4a",
+      src: "assets/9月10日 下午5点18分.m4a",
       description: "这是我们七人小组对周志老师和王永才老师的感谢录音"
     },
     {
       name: "祝福录音",
-      src: "祝福1.m4a",
+      src: "assets/祝福1.m4a",
       description: "来自七人小组的祝福录音"
     },
     {
       name: "学院录音",
-      src: "深圳技术大学大数据与互联网学院 2.m4a",
+      src: "assets/深圳技术大学大数据与互联网学院 2.m4a",
       description: "学院相关的录音内容"
     },
     {
       name: "新录音2",
-      src: "新录音 2.m4a",
+      src: "assets/新录音 2.m4a",
       description: "七人小组的额外祝福录音"
     },
     {
       name: "学生公寓录音",
-      src: "深圳技术大学学生公寓17B栋.m4a",
+      src: "assets/深圳技术大学学生公寓17B栋.m4a",
       description: "来自学生公寓的特别录音"
     }
   ];
@@ -117,9 +117,6 @@ const MultiAudioPlayer = () => {
       <div className="bg-gradient-to-br from-white/90 to-cream-white/80 backdrop-blur-lg border border-white/50 rounded-3xl p-8 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.15)]">
         {/* 当前播放信息 */}
         <div className="text-center mb-6">
-          <h3 className="text-xl font-bold text-deep-charcoal mb-2">
-            {audioFiles[currentTrack].name}
-          </h3>
           <p className="text-sm text-muted-foreground">
             {audioFiles[currentTrack].description}
           </p>
@@ -196,9 +193,6 @@ const MultiAudioPlayer = () => {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-medium text-sm text-deep-charcoal">
-                    {file.name}
-                  </div>
                   <div className="text-xs text-muted-foreground">
                     {file.description}
                   </div>
