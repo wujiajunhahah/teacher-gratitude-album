@@ -30,6 +30,16 @@ const MultiAudioPlayer = () => {
       name: "学院录音",
       src: "深圳技术大学大数据与互联网学院 2.m4a",
       description: "学院相关的录音内容"
+    },
+    {
+      name: "新录音2",
+      src: "新录音 2.m4a",
+      description: "七人小组的额外祝福录音"
+    },
+    {
+      name: "学生公寓录音",
+      src: "深圳技术大学学生公寓17B栋.m4a",
+      description: "来自学生公寓的特别录音"
     }
   ];
 
