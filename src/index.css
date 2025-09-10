@@ -20,19 +20,25 @@ All colors MUST be HSL.
     --primary: 220 13% 18%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 48 96% 89%;
-    --secondary-foreground: 220 13% 18%;
+    --secondary: 35 77% 49%;
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 220 9% 46%;
 
-    --accent: 330 81% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 14 83% 73%;
+    --accent-foreground: 220 13% 18%;
 
-    --warm-yellow: 48 96% 89%;
-    --rose-pink: 330 81% 60%;
-    --soft-gray: 220 14% 96%;
-    --text-warm: 220 13% 18%;
+    --warm-coral: 14 83% 73%;
+    --golden-sand: 35 77% 49%;
+    --sage-green: 150 30% 60%;
+    --soft-lavender: 250 30% 85%;
+    --cream-white: 45 25% 97%;
+    --deep-charcoal: 220 13% 18%;
+    --gradient-sunset: linear-gradient(135deg, hsl(14, 83%, 73%), hsl(35, 77%, 49%));
+    --gradient-gentle: linear-gradient(180deg, hsl(45, 25%, 97%), hsl(0, 0%, 100%));
+    --shadow-soft: 0 10px 25px -5px hsl(220, 13%, 18%, 0.1);
+    --shadow-glow: 0 0 20px hsl(14, 83%, 73%, 0.3);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -73,19 +79,25 @@ All colors MUST be HSL.
     --primary: 0 0% 98%;
     --primary-foreground: 220 13% 18%;
 
-    --secondary: 48 96% 89%;
-    --secondary-foreground: 220 13% 18%;
+    --secondary: 35 77% 49%;
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 220 13% 27%;
     --muted-foreground: 220 9% 65%;
 
-    --accent: 330 81% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 14 83% 73%;
+    --accent-foreground: 220 13% 18%;
 
-    --warm-yellow: 48 96% 89%;
-    --rose-pink: 330 81% 60%;
-    --soft-gray: 220 13% 27%;
-    --text-warm: 0 0% 98%;
+    --warm-coral: 14 83% 73%;
+    --golden-sand: 35 77% 49%;
+    --sage-green: 150 30% 60%;
+    --soft-lavender: 250 30% 85%;
+    --cream-white: 45 25% 97%;
+    --deep-charcoal: 0 0% 98%;
+    --gradient-sunset: linear-gradient(135deg, hsl(14, 83%, 73%), hsl(35, 77%, 49%));
+    --gradient-gentle: linear-gradient(180deg, hsl(220, 13%, 27%), hsl(220, 13%, 18%));
+    --shadow-soft: 0 10px 25px -5px hsl(0, 0%, 0%, 0.3);
+    --shadow-glow: 0 0 20px hsl(14, 83%, 73%, 0.4);
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
