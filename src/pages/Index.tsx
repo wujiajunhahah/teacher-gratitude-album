@@ -6,17 +6,17 @@ import ThanksSection from '@/components/ThanksSection';
 const Index = () => {
   // Photo gallery images using the uploaded photos
   const photos = [
-    '/lovable-uploads/1b67a95a-291e-4f12-95da-daddc464a4d9.png',
-    '/lovable-uploads/cd2f3ee6-4248-44b2-8047-47610784571e.png',
-    '/lovable-uploads/c74770b8-7dfd-48f4-9197-344bf7f54140.png',
-    '/lovable-uploads/11cac9a8-5cab-4aab-8e2d-b031dc2fe431.png',
-    '/lovable-uploads/17ff1189-0d67-4314-a0c4-efafd068efaf.png',
+    '6ab71b20b5c140ce7affaa8ed18a9368.jpg',
+    '4361f34a5c0b7bc13128b423925eeb7b.jpg',
+    '31245ab32a7b3624ae253c61395616a1.jpg',
+    'b8cd16d1c89638b221618e381cc1c7b8.jpg',
+    '30faac6fdc5dbb599e07c2a98f537d9b.jpg',
   ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <HeroSection backgroundImage="/lovable-uploads/11cac9a8-5cab-4aab-8e2d-b031dc2fe431.png" />
+      <HeroSection backgroundImage="6ab71b20b5c140ce7affaa8ed18a9368.jpg" />
       
       {/* Photo Gallery */}
       <PhotoGallery photos={photos} />

@@ -6,7 +6,7 @@ interface AudioPlayerProps {
   audioSrc?: string;
 }
 
-const AudioPlayer = ({ audioSrc = "/audio/all.mp3" }: AudioPlayerProps) => {
+const AudioPlayer = ({ audioSrc = "9月10日 下午5点18分.m4a" }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);

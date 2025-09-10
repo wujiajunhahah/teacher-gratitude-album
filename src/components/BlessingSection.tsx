@@ -1,4 +1,4 @@
-import AudioPlayer from './AudioPlayer';
+import MultiAudioPlayer from './MultiAudioPlayer';
 
 const BlessingSection = () => {
   return (
@@ -22,7 +22,7 @@ const BlessingSection = () => {
         </div>
         
         <div className="mb-16 animate-scale-in">
-          <AudioPlayer />
+          <MultiAudioPlayer />
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
