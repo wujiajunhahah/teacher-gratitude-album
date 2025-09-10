@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;简易大富翁&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f0f0f0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#board {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cell {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.player {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.5s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#controls {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#dice {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.dice-roll {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: roll 0.5s ease-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes roll {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: rotate(0deg); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: rotate(360deg); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="board"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="controls"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="dice" onclick="rollDice()"&gt;?&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;当前玩家：&lt;span id="current-player"&gt;红&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;按回车键或点击骰子开始&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const players = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ color: 'red', position: 0, element: null },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ color: 'blue', position: 0, element: null },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ color: 'green', position: 0, element: null },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ color: 'yellow', position: 0, element: null }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentPlayer = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let isRolling = false;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const cells = [];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const CELL_COUNT = 20;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const PLAYER_COLORS = ['red', 'blue', 'green', 'yellow'];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 初始化棋盘</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function initBoard() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const board = document.getElementById('board');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 创建棋盘格子</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; CELL_COUNT; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const cell = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cell.className = 'cell';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cell.textContent = i + 1;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 计算位置（简单环形布局）</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const angle = (i * 360 / CELL_COUNT) * Math.PI / 180;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const x = 300 + 250 * Math.cos(angle) - 30;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const y = 300 + 250 * Math.sin(angle) - 30;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>cell.style.left = x + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cell.style.top = y + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>board.appendChild(cell);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cells.push({x, y});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 创建玩家棋子</p>
+<p class="p1"><span class="Apple-converted-space">            </span>players.forEach((player, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const element = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>element.className = 'player';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>element.style.backgroundColor = player.color;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>element.style.left = (cells[0].x + 20 * (index % 2)) + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>element.style.top = (cells[0].y + 20 * Math.floor(index / 2)) + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>board.appendChild(element);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>player.element = element;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 掷骰子逻辑</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function rollDice() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isRolling) return;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>isRolling = true;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const dice = document.getElementById('dice');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dice.classList.add('dice-roll');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const result = Math.floor(Math.random() * 6) + 1;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dice.textContent = result;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dice.classList.remove('dice-roll');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>movePlayer(result);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>isRolling = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 500);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 移动玩家</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function movePlayer(steps) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const player = players[currentPlayer];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>player.position = (player.position + steps) % CELL_COUNT;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const targetCell = cells[player.position];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const offsetX = 20 * (currentPlayer % 2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const offsetY = 20 * Math.floor(currentPlayer / 2);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>player.element.style.left = (targetCell.x + offsetX) + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>player.element.style.top = (targetCell.y + offsetY) + 'px';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 切换到下一个玩家</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentPlayer = (currentPlayer + 1) % players.length;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('current-player').textContent =<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>PLAYER_COLORS[currentPlayer];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 键盘事件监听</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('keydown', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (e.key === 'Enter') rollDice();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 初始化游戏</p>
+<p class="p1"><span class="Apple-converted-space">        </span>initBoard();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
